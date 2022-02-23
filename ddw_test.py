@@ -1,4 +1,4 @@
-from dw import Interval
+from ddw import Interval
 from os import remove, system
 
 FILE="testo.tsv"
@@ -11,6 +11,8 @@ x = Interval("deep", 12, "test")
 
 print("Printing and instance of interval")
 print(x)
+
+print(f"Start {x.start.minute}, End {x.end.minute}")
 
 for i in range(6):
     x.write(f"{FILE}")

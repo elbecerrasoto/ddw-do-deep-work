@@ -1,14 +1,19 @@
+import datetime as dt
+
+INTERVAL = 25
+
+
 class Interval:
-    def __init__(self, tag: str, duration: int = 0, comment: str = "", sep: str = "\t"):
+    def __init__(self, tag: str, duration: int = INTERVAL, comment: str = "", sep: str = ","):
 
         self.sep = sep
 
         self.tag = tag
-        self.start = 0
-        self.end = self.start + duration
+        self.start = dt.datetime.now()
+        self.end = self.start + dt.timedelta(minutes=25)
         self.comment = comment
 
-        self.fields = [str(i) for i in (self.tag, self.start, self.end, self.comment)]
+        self.fields = [str(i) for i in (self.tag, self.start.isoformat(), self.end.isoformat(), self.comment)]
 
     def __repr__(self):
         return self.sep.join(self.fields)
